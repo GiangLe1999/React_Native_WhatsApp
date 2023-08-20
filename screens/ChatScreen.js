@@ -4,26 +4,34 @@ import {
   ImageBackground,
   StyleSheet,
   FlatList,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import React from "react";
 
 import messages from "../assets/data/messages.json";
 import Message from "../components/Message";
+import InputBox from "../components/InputBox";
 
 const ChatScreen = () => {
   return (
-    <ImageBackground
-      source={require("../assets/images/BG.png")}
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.bg}
     >
-      <FlatList
-        data={messages}
-        renderItem={({ item }) => <Message message={item} />}
-        style={styles.list}
-        inverted
-      />
-      <Text>ChatScreen</Text>
-    </ImageBackground>
+      <ImageBackground
+        source={require("../assets/images/BG.png")}
+        style={styles.bg}
+      >
+        <FlatList
+          data={messages}
+          renderItem={({ item }) => <Message message={item} />}
+          style={styles.list}
+          inverted
+        />
+        <InputBox />
+      </ImageBackground>
+    </KeyboardAvoidingView>
   );
 };
 
