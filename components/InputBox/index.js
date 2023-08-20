@@ -1,12 +1,7 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const InputBox = () => {
   const [message, setMessge] = useState("");
@@ -15,7 +10,8 @@ const InputBox = () => {
   };
 
   return (
-    <View style={styles.container}>
+    // Dùng edges để bỏ padding mặc định của SafeAreaView
+    <SafeAreaView edges={["bottom"]} style={styles.container}>
       {/* Icon */}
       <TouchableOpacity>
         <AntDesign name="plus" size={24} color="royalblue" />
@@ -38,7 +34,7 @@ const InputBox = () => {
           color="white"
         />
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -47,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "whitesmoke",
-    padding: 5,
+    paddingVertical: 10,
     paddingHorizontal: 10,
   },
 

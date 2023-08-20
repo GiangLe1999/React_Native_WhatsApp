@@ -7,16 +7,25 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import React from "react";
+import React, { useLayoutEffect } from "react";
 
 import messages from "../assets/data/messages.json";
 import Message from "../components/Message";
 import InputBox from "../components/InputBox";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 const ChatScreen = () => {
+  const route = useRoute();
+  const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({ title: route.params.name });
+  }, [route.params.name]);
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 90}
       style={styles.bg}
     >
       <ImageBackground

@@ -1,11 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
-import ChatsScreen from "./screens/ChatsScreen";
-import ChatScreen from "./screens/ChatScreen";
+import { StyleSheet, View } from "react-native";
+import Navigator from "./navigation";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ChatScreen />
+      <Navigator />
     </View>
   );
 }
@@ -15,6 +14,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     justifyContent: "center",
-    paddingVertical: 50,
+    backgroundColor: "whitesmoke",
   },
 });
