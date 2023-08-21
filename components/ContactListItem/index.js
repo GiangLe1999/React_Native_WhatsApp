@@ -30,15 +30,22 @@ const styles = StyleSheet.create({
     height: 70,
     alignItems: "center",
   },
+
   image: {
     width: 60,
     height: 60,
     borderRadius: 30,
     marginRight: 10,
   },
+
   name: {
     fontWeight: "bold",
   },
+
+  content: {
+    flex: 1,
+  },
+
   subTitle: {
     color: "gray",
   },
